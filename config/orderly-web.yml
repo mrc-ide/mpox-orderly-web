@@ -58,7 +58,7 @@ orderly:
     tag: latest
   initial:
     source: clone
-    url: https://github.com/mrc-ide/monkeypox-orderly
+    url: git@github.com:mrc-ide/monkeypox-orderly
   workers: 1
   ssh:
     public: VAULT:secret/monkeypox/deploy-key:public

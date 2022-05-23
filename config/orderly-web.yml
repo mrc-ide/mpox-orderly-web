@@ -55,7 +55,7 @@ orderly:
     repo: ncovic
     name: ncov-orderly
     worker_name: monkeypox-orderly
-    tag: main
+    tag: latest
   initial:
     source: clone
     url: https://github.com/mrc-ide/monkeypox-orderly

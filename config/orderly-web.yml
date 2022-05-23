@@ -54,7 +54,7 @@ orderly:
   image:
     repo: ncovic
     name: ncov-orderly
-    worker_name: monkeypox-orderly
+    worker_name: ncov-orderly
     tag: latest
   initial:
     source: clone

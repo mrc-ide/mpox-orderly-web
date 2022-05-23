@@ -52,8 +52,8 @@ orderly:
   ## you need.  The components repo, image and tag will be assembled as
   ## <repo>/<name>:<tag> for the full docker image reference.
   image:
-    repo: mrcide
-    name: monkeypox-orderly
+    repo: ncovic
+    name: ncov-orderly
     worker_name: monkeypox-orderly
     tag: main
   initial:

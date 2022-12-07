@@ -1,4 +1,4 @@
-## monkeypox-outputs OrderlyWeb configuration
+## mpox-outputs OrderlyWeb configuration
 
 ### Prerequisites
 
@@ -30,3 +30,14 @@ Then redeploy with:
 orderly-web stop config
 orderly-web start --pull config
 ```
+
+## Set up a deploy key
+
+```
+ssh-keygen -t rsa -b 4096 -C "r.fitzjohn@imperial.ac.uk" -f deploy_key
+vault login -method=github
+vault write secret/mpox/deploy-key public=@deploy_key.pub private=@deploy_key
+xsel --clipboard < deploy_key.pub
+```
+
+Add the key here: https://github.com/mrc-ide/mpxv-who-outputs/settings/keys/new

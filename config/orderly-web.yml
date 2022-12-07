@@ -29,7 +29,7 @@ container_prefix: orderly_web
 ## If you want to proxy OrderlyWeb to the host, you will need to
 ## arrange a proxy on this network, or use dev_mode in the web section
 ## below.
-network: monkeypox_nw
+network: mpox_nw
 
 ## Names of the docker volumes to use:
 ##
@@ -40,9 +40,9 @@ network: monkeypox_nw
 ##
 ## (More volumes are anticipated as the tool develops)
 volumes:
-  orderly: monkeypox_orderly_volume
-  proxy_logs: monkeypox_web_proxy_logs
-  css: monkeypox_web_css
+  orderly: mpox_orderly_volume
+  proxy_logs: mpox_web_proxy_logs
+  css: mpox_web_css
   redis: orderly_web_redis_data
 
 ## Orderly configuration
@@ -58,11 +58,11 @@ orderly:
     tag: latest
   initial:
     source: clone
-    url: git@github.com:mrc-ide/monkeypox-outputs
+    url: git@github.com:mrc-ide/mpxv-who-outputs
   workers: 1
   ssh:
-    public: VAULT:secret/monkeypox/deploy-key:public
-    private: VAULT:secret/monkeypox/deploy-key:private
+    public: VAULT:secret/mpox/deploy-key:public
+    private: VAULT:secret/mpox/deploy-key:private
   env:
     ORDERLY_API_SERVER_IDENTITY: real
     ## VIMC-3692
@@ -92,7 +92,7 @@ web:
   ## ports).  Here, we're going to use the same as for the proxy but
   ## if you are using an external proxy then you'd use its hostname
   ## and port.
-  url: https://monkeypox.dide.ic.ac.uk
+  url: https://mpox.dide.ic.ac.uk
   ## If dev_mode is true then the port is exposed to the host (as
   ## plain http).  Do not use in production.  The port is attached
   ## only to the localhost and will not be available from other
@@ -107,10 +107,10 @@ web:
   ## Authentication configuration
   auth:
     github_org: mrc-ide
-    github_team: monkeypox
+    github_team: mpox
     github_oauth:
-      id: VAULT:secret/monkeypox/oauth/real:id
-      secret: VAULT:secret/monkeypox/oauth/real:secret
+      id: VAULT:secret/mpox/oauth:id
+      secret: VAULT:secret/mpox/oauth:secret
     fine_grained: false
     montagu: false
   ## Optional sass variables to override default styles. Should be a
@@ -136,9 +136,9 @@ proxy:
     ## 2. certificates from strings - include the strings directly in
     ##    the keys here, or more likely use a VAULT:<path>:<key>
     ##    string to extract them from the vault.
-    certificate: VAULT:secret/monkeypox/proxy/real:certificate
-    key: VAULT:secret/monkeypox/proxy/real:key
-  hostname: monkeypox.dide.ic.ac.uk
+    certificate: VAULT:secret/mpox/ssl:cert
+    key: VAULT:secret/mpox/ssl:key
+  hostname: mpox.dide.ic.ac.uk
   port_http: 80
   port_https: 443
   image:

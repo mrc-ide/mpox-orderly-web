@@ -67,7 +67,7 @@ orderly:
     ORDERLY_API_SERVER_IDENTITY: real
     ## VIMC-3692
     VAULT_AUTH_GITHUB_TOKEN: mustexist
-    MC_CORES: 4
+    MC_CORES: 32
 
 ## Api and Website configuration
 web:
